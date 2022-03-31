@@ -42,7 +42,6 @@ class E_EmployeeRestControllerTemplateIT {
         repository.deleteAll();
     }
 
-
     @Test
      void whenValidInput_thenCreateEmployee() {
         Employee bob = new Employee("bob", "bob@deti.com");
@@ -57,14 +56,12 @@ class E_EmployeeRestControllerTemplateIT {
         createTestEmployee("bob", "bob@deti.com");
         createTestEmployee("alex", "alex@deti.com");
 
-
         ResponseEntity<List<Employee>> response = restTemplate
                 .exchange("/api/employees", HttpMethod.GET, null, new ParameterizedTypeReference<List<Employee>>() {
                 });
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).extracting(Employee::getName).containsExactly("bob", "alex");
-
     }
 
 

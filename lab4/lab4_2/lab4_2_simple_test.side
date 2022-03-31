@@ -1,0 +1,146 @@
+{
+  "id": "012bf2a0-3728-46b7-819c-d7d5506e0f69",
+  "version": "2.0",
+  "name": "lab4_1",
+  "url": "https://blazedemo.com",
+  "tests": [{
+    "id": "2eedb31a-4e54-49cb-8abf-efafcec28315",
+    "name": "Untitled",
+    "commands": [{
+      "id": "9c41a0a5-1d2a-4817-8d95-a4926cff90ee",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "afd7f449-294d-4f5a-bba3-db3ee61fec6f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "960x1055",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d69bac30-99ea-413d-be25-f140bf04c5a8",
+      "comment": "",
+      "command": "click",
+      "target": "name=fromPort",
+      "targets": [
+        ["name=fromPort", "name"],
+        ["css=.form-inline:nth-child(1)", "css:finder"],
+        ["xpath=//select[@name='fromPort']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de805ff4-bcd0-40a0-b9f4-ee885fe1768c",
+      "comment": "",
+      "command": "select",
+      "target": "name=fromPort",
+      "targets": [],
+      "value": "label=Philadelphia"
+    }, {
+      "id": "c4e67bbc-3a36-48c0-9b4a-5d2c485f046d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-inline:nth-child(1) > option:nth-child(2)",
+      "targets": [
+        ["css=.form-inline:nth-child(1) > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Philadelphia']", "xpath:attributes"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Philadelphia')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "64e03c4f-d69c-43fd-ab0c-9e4651fb1450",
+      "comment": "",
+      "command": "click",
+      "target": "name=toPort",
+      "targets": [
+        ["name=toPort", "name"],
+        ["css=.form-inline:nth-child(4)", "css:finder"],
+        ["xpath=//select[@name='toPort']", "xpath:attributes"],
+        ["xpath=//select[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1be75c59-7276-4e62-bcbd-0b30159fdd94",
+      "comment": "",
+      "command": "select",
+      "target": "name=toPort",
+      "targets": [],
+      "value": "label=Rome"
+    }, {
+      "id": "1bdff040-646c-4734-8c60-1d8bd6b290b0",
+      "comment": "",
+      "command": "storeValue",
+      "target": "name=toPort",
+      "targets": [],
+      "value": "dest"
+    }, {
+      "id": "1d38a767-165e-4823-b6c0-1726058ffed5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "name=toPort",
+      "targets": [],
+      "value": "Porto"
+    }, {
+      "id": "e8e68c36-0e39-4447-8605-fd50c440d0a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Find Flights']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72348c4b-e5fc-4c82-886a-ddae04265a58",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) .btn",
+      "targets": [
+        ["css=tr:nth-child(5) .btn", "css:finder"],
+        ["xpath=(//input[@value='Choose This Flight'])[5]", "xpath:attributes"],
+        ["xpath=//tr[5]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b81b3096-17ad-4b9a-845a-2a135e16c16c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,195)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d9cde9f-506b-407c-bbdf-80ded7d1ef49",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Purchase Flight']", "xpath:attributes"],
+        ["xpath=//div[11]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddee89f9-24db-42fe-88ee-1143b6d9b2d8",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "BlazeDemo Confirmation",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "77e8d8db-1405-4520-ae71-f34115b4628b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2eedb31a-4e54-49cb-8abf-efafcec28315"]
+  }],
+  "urls": ["https://blazedemo.com/"],
+  "plugins": []
+}
