@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa30750f-7326-4d4e-a3a4-fc96286959d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Calculator/LICENCE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/classes/java/main/io/cucumber/skeleton/Belly.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/classes/java/test/io/cucumber/skeleton/RunCucumberTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/classes/java/test/io/cucumber/skeleton/StepDefinitions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/classes/io.cucumber.skeleton.RunCucumberTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/reports/tests/test/packages/io.cucumber.skeleton.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/resources/test/io/cucumber/skeleton/belly.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/resources/test/junit-platform.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/test-results/test/TEST-io.cucumber.skeleton.RunCucumberTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/src/main/java/calculator/Belly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/src/test/java/calculator/RunCucumberTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/src/test/java/calculator/StepDefinitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/src/test/resources/calculator/belly.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculator/src/test/resources/junit-platform.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cucumber-java-skeleton/cucumber-java-skeleton/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="27TKMqEUHIRkEOeHQNP2fRmDGx0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Calculator" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cucumber-java-skeleton/Calculator/src/main/java/io/calculator/" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa30750f-7326-4d4e-a3a4-fc96286959d0" name="Changes" comment="" />
+      <created>1649338593071</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649338593071</updated>
+      <workItem from="1649338595170" duration="60000" />
+      <workItem from="1649338664023" duration="513000" />
+      <workItem from="1649341212925" duration="1018000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

@@ -1,0 +1,5 @@
+
+TScenario: a few cukes               [90m# io/cucumber/skeleton/belly.feature:3[0m
+š  [32mGiven [0m[32mI have [0m[32m[1m42[0m[32m cukes in my belly[0m [90m# io.cucumber.skeleton.StepDefinitions.I_have_cukes_in_my_belly(int)[0m
+›  [32mWhen [0m[32mI wait [0m[32m[1m1[0m[32m hour[0m                [90m# io.cucumber.skeleton.StepDefinitions.i_wait_hour(java.lang.Integer)[0m
+~  [32mThen [0m[32mmy belly should growl[0m        [90m# io.cucumber.skeleton.StepDefinitions.my_belly_should_growl()[0m
