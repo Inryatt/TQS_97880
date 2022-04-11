@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: tqs.lab3.ex2.CarRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.994 s - in tqs.lab3.ex2.CarRepositoryTest

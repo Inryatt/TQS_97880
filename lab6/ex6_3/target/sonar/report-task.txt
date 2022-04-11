@@ -1,0 +1,6 @@
+projectKey=Cars
+serverUrl=http://172.17.0.2:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://172.17.0.2:9000/dashboard?id=Cars
+ceTaskId=AYAZPXzg5eVG6JJwdiVE
+ceTaskUrl=http://172.17.0.2:9000/api/ce/task?id=AYAZPXzg5eVG6JJwdiVE
