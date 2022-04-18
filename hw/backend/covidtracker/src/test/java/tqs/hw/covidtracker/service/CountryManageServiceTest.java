@@ -1,6 +1,5 @@
 package tqs.hw.covidtracker.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
@@ -31,9 +30,9 @@ public class CountryManageServiceTest {
 
         String responseAll = "[{\"updated\":1650187216459,\"country\":\"Afghanistan\",\"countryInfo\":{\"_id\":4,\"iso2\":\"AF\",\"iso3\":\"AFG\",\"lat\":33,\"long\":65,\"flag\":\"https://disease.sh/assets/img/flags/af.png\"},\"cases\":178418,\"todayCases\":31,\"deaths\":7678,\"todayDeaths\":2,\"recovered\":161517,\"todayRecovered\":43,\"active\":9223,\"critical\":1124,\"casesPerOneMillion\":4406,\"deathsPerOneMillion\":190,\"tests\":935313,\"testsPerOneMillion\":23098,\"population\":40493402,\"continent\":\"Asia\",\"oneCasePerPeople\":227,\"oneDeathPerPeople\":5274,\"oneTestPerPeople\":43,\"activePerOneMillion\":227.77,\"recoveredPerOneMillion\":3988.72,\"criticalPerOneMillion\":27.76},{\"updated\":1650187216366,\"country\":\"Albania\",\"countryInfo\":{\"_id\":8,\"iso2\":\"AL\",\"iso3\":\"ALB\",\"lat\":41,\"long\":20,\"flag\":\"https://disease.sh/assets/img/flags/al.png\"},\"cases\":274462,\"todayCases\":0,\"deaths\":3496,\"todayDeaths\":0,\"recovered\":270608,\"todayRecovered\":0,\"active\":358,\"critical\":2,\"casesPerOneMillion\":95559,\"deathsPerOneMillion\":1217,\"tests\":1791981,\"testsPerOneMillion\":623909,\"population\":2872185,\"continent\":\"Europe\",\"oneCasePerPeople\":10,\"oneDeathPerPeople\":822,\"oneTestPerPeople\":2,\"activePerOneMillion\":124.64,\"recoveredPerOneMillion\":94216.77,\"criticalPerOneMillion\":0.7}]";
 
-        Mockito.when(basicHttpClient.doHttpGet("https://disease.sh/v3/covid-19/countries")).thenReturn(responseAll);
-
-        assertEquals(responseAll,countryManagerService.getAllCountryData());
+        Mockito.when(basicHttpClient.doHttpGet("https://disease.sh/v3/covid-19/countries/")).thenReturn(responseAll);
+        String r = countryManagerService.getAllCountryData();
+        assertEquals(responseAll,r);
 
     }
 

@@ -166,7 +166,7 @@ public class CountryManagerService {
             cacheTTL=new HashMap<>();
             stats=new CacheStats();
 
-            ttl=1000; // 10 seconds -- Probably should be 10min in prod since that's how often api is updated TODO time
+            ttl=10000;
         }
 
         void verifyCache(){
@@ -174,10 +174,14 @@ public class CountryManagerService {
             Long instant =System.currentTimeMillis();
             ArrayList<String> toRemove=new ArrayList<>();
             for (String key:  cacheTTL.keySet()){
-                if (instant-cacheTTL.get(key)<ttl){
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "TTL: "+this.ttl);
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "It's been: "+(instant-cacheTTL.get(key)));
+
+                if (instant-cacheTTL.get(key)>ttl){
                     toRemove.add(key);
                 }
             }
+
             for(String key : toRemove){
                 cacheTTL.remove(key);
                 cache.remove(key);
@@ -217,6 +221,7 @@ public class CountryManagerService {
             return stats;
         }
         void clear(){
+            this.stats.clear();
             this.cache.clear();
             this.cacheTTL.clear();
             this.stats.clear();
@@ -311,7 +316,7 @@ public class CountryManagerService {
         }
 
 
-
+/*
         private ArrayList<String> getTimeCountry(String name) throws URISyntaxException {
             //String backupAPI1 = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?country=";
             //String backupAPI2= "&min_date=2020-04-27T00:00:00.000Z&max_date=2020-04-27T00:00:00.000Z&hide_fields=_id,%20combined_names,%20country_codes,%20country_iso2s,states,country_iso3s,uids";
@@ -338,5 +343,7 @@ public class CountryManagerService {
                 add(dataNotFound());}};
 
         }
+
+ */
     }
 }

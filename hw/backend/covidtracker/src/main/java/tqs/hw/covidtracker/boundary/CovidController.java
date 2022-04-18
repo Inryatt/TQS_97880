@@ -3,13 +3,11 @@ package tqs.hw.covidtracker.boundary;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.hibernate.annotations.Parameter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tqs.hw.covidtracker.connection.BasicHttpClient;
-import tqs.hw.covidtracker.data.CountryDTO;
 import tqs.hw.covidtracker.service.CountryManagerService;
 
 import java.io.IOException;
@@ -29,9 +27,8 @@ public class CovidController {
         this.countryService=new CountryManagerService((new BasicHttpClient()));
     }
 
-
     @GetMapping("/all")
-    ArrayList<Map> getAllData() throws URISyntaxException, IOException {
+    ArrayList<Map> getAllData() throws URISyntaxException {
         return convertThisList( countryService.getAllData());
     }
 
@@ -46,7 +43,10 @@ public class CovidController {
         return convertThis( countryService.getCountryData(name));
     }
 
-
+    @GetMapping("/stats")
+    Map getStats() {
+        return convertThis( countryService.getCacheStats());
+    }
 
 
     // Utils
