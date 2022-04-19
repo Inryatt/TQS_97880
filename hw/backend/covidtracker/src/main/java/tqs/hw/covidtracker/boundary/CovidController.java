@@ -58,7 +58,6 @@ public class CovidController {
 
     Map<Object,Object> convertThis(String inp){
         Gson gson = new Gson();
-        //return new Gson().fromJson(inp, CountryDTO.class);
         return gson.fromJson(inp, Map.class);
     }
 }

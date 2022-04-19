@@ -15,6 +15,8 @@ public class CountryManagerService {
 //TODO: TOLOWERCASE ALL REQUESTS!!!!!!
     private final ISimpleHttpClient httpClient;
     private final FetchContent fetcher;
+    private String hit ="Cache hit!";
+    private String miss ="Cache miss!";
 
     public final Cache cache;
     public CountryManagerService(ISimpleHttpClient httpClient) throws URISyntaxException {
@@ -32,16 +34,16 @@ public class CountryManagerService {
                 """;
     }
 
-    public String getAllCountryData() throws URISyntaxException, IOException {
+    public String getAllCountryData() throws URISyntaxException {
         String data;
         String origin = "api/v1/countries";
         if(cache.contains(origin)){
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache hit!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, hit);
 
             data = cache.getCache().get(origin);
         }
         else {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache miss!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, miss);
             ArrayList<String> tmpData = fetcher.getAllCountries();
             if (Objects.equals(tmpData.get(0), "0")) {
                 data = tmpData.get(1);
@@ -62,14 +64,14 @@ public class CountryManagerService {
         String origin = "api/v1/countries/"+name.toLowerCase(Locale.ROOT);
         if(cache.contains(origin)){
 
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache hit!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, hit);
             data = cache.getCache().get(origin);
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Obtained "+name +" data.");
 
         }
         else {
 
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache miss!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, miss);
             ArrayList<String> tmpData = fetcher.getThisCountry(name);
             if (Objects.equals(tmpData.get(0), "0")){
                 data = tmpData.get(1);
@@ -92,12 +94,12 @@ public class CountryManagerService {
         String data;
         String origin = "api/v1/all";
         if(cache.contains(origin)){
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache hit!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, hit);
 
             data = cache.getCache().get(origin);
         }
         else {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Cache miss!");
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, miss);
             ArrayList<String> tmpData = fetcher.getAllData();
             if (Objects.equals(tmpData.get(0), "0")) {
                 data = tmpData.get(1);
