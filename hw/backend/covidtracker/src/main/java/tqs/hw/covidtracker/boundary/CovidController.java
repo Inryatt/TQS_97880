@@ -28,35 +28,35 @@ public class CovidController {
     }
 
     @GetMapping("/all")
-    ArrayList<Map> getAllData() throws URISyntaxException {
-        return convertThisList( countryService.getAllData());
+    Map<Object,Object> getAllData() throws URISyntaxException {
+        return convertThis( countryService.getAllData());
     }
 
     @GetMapping("/countries")
-    ArrayList<Map> getAllCountries() throws URISyntaxException, IOException {
+    ArrayList< Map<Object,Object>> getAllCountries() throws URISyntaxException, IOException {
         return convertThisList( countryService.getAllCountryData());
     }
 
     @GetMapping("/countries/{name}")
-    Map getOneCountry(
+    Map<Object,Object> getOneCountry(
             @PathVariable(value = "name") String name) {
         return convertThis( countryService.getCountryData(name));
     }
 
     @GetMapping("/stats")
-    Map getStats() {
+    Map<Object,Object> getStats() {
         return convertThis( countryService.getCacheStats());
     }
 
 
     // Utils
-    ArrayList<Map> convertThisList(String inp){
+    ArrayList< Map<Object,Object>> convertThisList(String inp){
 
-        Type listType = new TypeToken<ArrayList<Map>>(){}.getType();
+        Type listType = new TypeToken<ArrayList< Map<Object,Object>>>(){}.getType();
         return new Gson().fromJson(inp, listType);
     }
 
-    Map convertThis(String inp){
+    Map<Object,Object> convertThis(String inp){
         Gson gson = new Gson();
         //return new Gson().fromJson(inp, CountryDTO.class);
         return gson.fromJson(inp, Map.class);

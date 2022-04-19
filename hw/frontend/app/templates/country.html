@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Worldwide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reboot.css') }}">
+    <style>
+        body {
+            padding-top: 60px;
+            /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="bs-docs-section">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-lg-1 h1">
+                                <p class="lead">
+                                    <a class="btn btn-primary btn-lg" href="/" role="button">Go home</a>
+                                </p>
+                            </div>
+                            <div id="containers" class=" page-header h1 col-lg-11">
+                                <h6>&nbsp;Country Data</h6>
+                                <div class="btn-lg btn-primary btn float-right"><img src="{{flag}}"></div>
+                            </div>
+                        </div>
+                        </br>
+
+                    </div>
+                    <div class="bs-component">
+                        <form class="jumbotron" method="get">
+                            <h1 class="display-3 form-group">Use the buttons below to control the data you want to see
+                                </br>
+                                </br>
+                                <div class=" row">
+                                    <label class="col-lg-1 text-primary " for="country_name">Country:</label>
+                                    <input class="form-control col-lg-2" id="country_name" aria-describedby="countryName " placeholder="Enter a country
+                                        name" name="country" value="{{country}}">
+                                    <div class="col-lg-8 "> (Leave this blank for data on ALL countries)</div>
+                                </div>
+
+                            </h1>
+                            <div class="row ">
+                                <div class="col-lg-4 ">
+
+                                    <p class="lead ">
+                                        <input class="btn btn-primary btn-lg " href="{{url_for('country',days=0)}}" role="button" type="submit" value="Today">
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 ">
+
+                                    <p class="lead ">
+                                        <input class="btn btn-primary btn-lg " href="{{url_for('country',days=1)}}" role="button" type="submit" value="Yesterday">
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 ">
+
+                                    <p class="lead ">
+                                        <input class="btn btn-primary btn-lg " href="{{url_for('country',days=2)}}" role="button" type="submit" value="Two Days Ago">
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-2 "></div>
+
+                        <div class="col-lg-8 ">
+                            <div class="bs-component ">
+                                <ul class="list-group ">
+                                    {%if country=="" %} {% for row in data %} {% for key,value in row.items() %}{% if key=='countryInfo' %} {% for keya,valuea in value.items() %} {%if keya=="flag" %} {% else %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center ">{{ keya }}
+                                        <span class="badge badge-primary badge-pill ">{{valuea}}</span>
+                                    </li>{%endif%}{%endfor%}{%else%}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center ">{{ key }}
+                                        <span class="badge badge-primary badge-pill ">{{value}}</span>
+                                    </li> {%endif%}{% endfor %}{%endfor%}{%else%} {% for key,value in data.items() %}{% if key=='countryInfo' %} {% for key,value in value.items() %} {%if key=="flag"%} {%else%}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center ">{{ key }}
+                                        <span class="badge badge-primary badge-pill ">{{value}}</span>
+                                    </li>{%endif%}{%endfor%}{%else%}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center ">{{ key }}
+                                        <span class="badge badge-primary badge-pill ">{{value}}</span>
+                                    </li> {% endif %}{% endfor %}{% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 "></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+    <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/bootstrap-transition.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-modal.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-dropdown.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-scrollspy.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-tab.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-tooltip.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-popover.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-button.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-collapse.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-carousel.js')}} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-typeahead.js')}} "></script>
+
+
+</body>
+
+</html>
