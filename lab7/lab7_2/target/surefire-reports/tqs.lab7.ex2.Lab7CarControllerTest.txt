@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: tqs.lab7.ex2.Lab7CarControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.582 s <<< FAILURE! - in tqs.lab7.ex2.Lab7CarControllerTest
+whenValidInput_thenCreateCar  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+Caused by: groovy.lang.GroovyRuntimeException: Conflicting module versions. Module [groovy-xml is loaded in version 4.0.1 and you are trying to load version 3.0.9
+
