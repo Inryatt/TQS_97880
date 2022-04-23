@@ -127,6 +127,10 @@ public class CountryManagerService {
                 cache.put(origin, data);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Obtained All Data.");
             }
+            else if (Objects.equals(tmpData.get(0), "2")) {
+                data = tmpData.get(1);
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Obtained All Data from BackupAPI.");
+            }
             else{
                 data = tmpData.get(1);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Couldn't obtain All Data.");
@@ -260,8 +264,7 @@ public class CountryManagerService {
 
 
         private ArrayList<String> getAllCountries() throws URISyntaxException {
-            //String backupAPI1 = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?country=";
-            //String backupAPI2= "&min_date=2020-04-27T00:00:00.000Z&max_date=2020-04-27T00:00:00.000Z&hide_fields=_id,%20combined_names,%20country_codes,%20country_iso2s,states,country_iso3s,uids";
+            String backupAPI = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
 
             try {
 
@@ -274,7 +277,8 @@ public class CountryManagerService {
 
                 return new ArrayList<>(){{add("0");
                     add(apiResponse);}};
-            } catch ( IOException ex){
+            } catch ( IOException ex) {
+
                 Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Main API did not respond!");
 
                 //TODO try other API
@@ -286,11 +290,10 @@ public class CountryManagerService {
 
         }
         private ArrayList<String> getAllData() throws URISyntaxException {
-            //String backupAPI1 = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?country=";
-            //String backupAPI2= "&min_date=2020-04-27T00:00:00.000Z&max_date=2020-04-27T00:00:00.000Z&hide_fields=_id,%20combined_names,%20country_codes,%20country_iso2s,states,country_iso3s,uids";
+            String backupAPI = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
 
             try {
-
+                //throw new IOException() ;
                 uriBuilder = new URIBuilder(mainAPI+"all");
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Sending request for all data to Main Api");
 
@@ -300,8 +303,26 @@ public class CountryManagerService {
 
                 return new ArrayList<>(){{add("0");
                     add(apiResponse);}};
+
+
             } catch ( IOException ex){
-                Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Main API did not respond!");
+
+                try {
+                    uriBuilder = new URIBuilder(backupAPI);
+                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Sending request for all countries to Backup Api");
+
+                    String apiResponse = this.httpClient.doHttpGet(uriBuilder.build().toString());
+
+                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, apiResponse);
+
+                    return new ArrayList<>() {{
+                        add("2");
+                        add(apiResponse);
+                    }};
+                } catch (IOException ex2){
+
+                    Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Main API did not respond!");
+                }
 
                 //TODO try other API
                 //uriBuilder = new URIBuilder(backupAPI1);
