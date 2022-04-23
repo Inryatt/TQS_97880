@@ -18,6 +18,11 @@
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<mockito-core.version>4.3.1</mockito-core.version>
 		<junit-jupiter.version>5.8.2</junit-jupiter.version>
+		<cucumber.version>7.2.3</cucumber.version>
+		<selenium-java.version>3.141.59</selenium-java.version>
+		<junit-platform-suite.version>1.8.2</junit-platform-suite.version>
+
+		<webdrivermanager.version>5.1.1</webdrivermanager.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,7 +51,36 @@
 			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId>
+			<version>${junit-platform-suite.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit-platform-engine</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- Hamcrest assertions library  -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

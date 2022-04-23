@@ -1,0 +1,60 @@
+{
+  "id": "e8fcb5c4-a951-4684-a683-05f6294c3009",
+  "version": "2.0",
+  "name": "HW",
+  "url": "http://127.0.0.1:5000",
+  "tests": [{
+    "id": "da7a294f-1f25-4cbe-82a8-8bc41270838c",
+    "name": "waaa",
+    "commands": []
+  }, {
+    "id": "bae45546-5210-4c3f-a6dc-a0aa82151058",
+    "name": "Get worldwide data",
+    "commands": [{
+      "id": "651bd4bf-8b80-42ea-bc0e-2d49ad4e8692",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cfa5d031-71f1-42d5-bfd6-c84b678ced8b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1052",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f9da6aa-de30-4816-9d45-87638c82df00",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Worldwide",
+      "targets": [
+        ["linkText=Worldwide", "linkText"],
+        ["css=.col-lg-4:nth-child(1) .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Worldwide')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'world')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Worldwide')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d0ec88c-2e00-46b9-8009-47cc556b5b53",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.list-group-item:nth-child(2)",
+      "targets": [],
+      "value": "*updated*"
+    }]
+  }],
+  "suites": [{
+    "id": "d9eaebef-6d6d-44f8-8625-4095e29d42f6",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["da7a294f-1f25-4cbe-82a8-8bc41270838c"]
+  }],
+  "urls": ["http://127.0.0.1:5000/"],
+  "plugins": []
+}
