@@ -54,7 +54,7 @@ public class CountryManageServiceTest {
 
         Mockito.when(basicHttpClient.doHttpGet("https://disease.sh/v3/covid-19/countries/finland")).thenReturn(responseFin);
 
-        assertEquals(responseFin,countryManagerService.getCountryData("finland"));
+        assertEquals(responseFin,countryManagerService.getCountryData("finland","none"));
 
     }
 
@@ -70,7 +70,7 @@ public class CountryManageServiceTest {
 
         Mockito.when(basicHttpClient.doHttpGet("https://disease.sh/v3/covid-19/countries/notaplace")).thenReturn(responseErr);
 
-        assertEquals(countryManagerService.dataNotFound(),countryManagerService.getCountryData("notaplace"));
+        assertEquals(countryManagerService.dataNotFound(),countryManagerService.getCountryData("notaplace","None"));
 
     }
 
@@ -80,8 +80,8 @@ public class CountryManageServiceTest {
 
         Mockito.when(basicHttpClient.doHttpGet("https://disease.sh/v3/covid-19/countries/finland")).thenReturn(responseFin);
 
-        countryManagerService.getCountryData("finland");
-        countryManagerService.getCountryData("finland");
+        countryManagerService.getCountryData("finland","None");
+        countryManagerService.getCountryData("finland","None");
         verify(basicHttpClient, times(1)).doHttpGet(Mockito.any());
 
 

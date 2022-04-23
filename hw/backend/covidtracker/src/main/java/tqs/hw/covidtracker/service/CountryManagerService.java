@@ -59,9 +59,30 @@ public class CountryManagerService {
         return data;
     }
 
-    public String getCountryData(String name) {
+    public String getCountryData(String name,String time) {
         String data;
-        String origin = "api/v1/countries/"+name.toLowerCase(Locale.ROOT);
+        String filter;
+
+        switch (time.toLowerCase(Locale.ROOT)) {
+            case "1" -> {
+
+                filter = "?yesterday=true";
+            }
+            case "2" -> {
+
+                filter = "?twoDaysAgo=true";
+            }
+            default -> {
+                filter = "";
+            }
+        }
+        System.out.println("Time: "+ time);
+        System.out.println("Time: "+ name);
+
+        System.out.println("Filter: "+ filter);
+        String origin = "api/v1/countries/"+name.toLowerCase(Locale.ROOT)+filter;
+        System.out.println("link: "+ origin);
+
         if(cache.contains(origin)){
 
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, hit);
@@ -72,7 +93,7 @@ public class CountryManagerService {
         else {
 
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, miss);
-            ArrayList<String> tmpData = fetcher.getThisCountry(name);
+            ArrayList<String> tmpData = fetcher.getThisCountry(name,filter);
             if (Objects.equals(tmpData.get(0), "0")){
                 data = tmpData.get(1);
 
@@ -195,7 +216,6 @@ public class CountryManagerService {
             cacheTTL.put(key,System.currentTimeMillis());
         }
 
-        // should I create a get() method too? See no reason to but to simplify use outside.
 
         boolean contains(String key){
             verifyCache();
@@ -291,12 +311,12 @@ public class CountryManagerService {
                 add(dataNotFound());}};
 
         }
-        private ArrayList<String> getThisCountry(String country){
+        private ArrayList<String> getThisCountry(String country, String filter){
             String backupAPI1 = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?country=";
             String backupAPI2= "&min_date=2020-04-27T00:00:00.000Z&max_date=2020-04-27T00:00:00.000Z&hide_fields=_id,%20combined_names,%20country_codes,%20country_iso2s,states,country_iso3s,uids";
             try {
 
-                uriBuilder = new URIBuilder(mainAPI+"countries/"+country.toLowerCase(Locale.ROOT));
+                uriBuilder = new URIBuilder(mainAPI+"countries/"+country.toLowerCase(Locale.ROOT)+filter);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Sending request for "+country+" to Main Api");
 
                 String apiResponse = this.httpClient.doHttpGet(uriBuilder.build().toString());

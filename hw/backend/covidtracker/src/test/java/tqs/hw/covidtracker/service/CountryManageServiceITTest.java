@@ -40,7 +40,7 @@ public class CountryManageServiceITTest {
     @Test
     void whenGetOneCountry_ReturnIt()  {
 
-        Map country= new Gson().fromJson(countryManagerService.getCountryData("finland"), Map.class);
+        Map country= new Gson().fromJson(countryManagerService.getCountryData("finland","none"), Map.class);
 
         assertEquals("Finland", country.get("country"));
 
@@ -51,7 +51,7 @@ public class CountryManageServiceITTest {
 
         String responseErr = """
                 {"message":"Country not found or doesn't have any cases"}""";
-        assertEquals(responseErr, countryManagerService.getCountryData("notaplace"));
+        assertEquals(responseErr, countryManagerService.getCountryData("notaplace","none"));
 
     }
 

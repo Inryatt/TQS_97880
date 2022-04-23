@@ -27,13 +27,18 @@ def world():
 
 
 @app.route("/country/", methods=["GET"])
-def country(days=0):
+def country():
+        print(request.args)
         name = request.args.get("country")
+        time = request.args.get("days")
+
+        if time is None:
+            time="none"
         if name is None:
-            url = "http://localhost:8080/api/v1/countries/".format(os.environ.get("TMDB_API_KEY"))
+            url = ("http://localhost:8080/api/v1/countries/").format(os.environ.get("TMDB_API_KEY"))+"?time="+time
             name=""
         else:
-            url = "http://localhost:8080/api/v1/countries/".format(os.environ.get("TMDB_API_KEY"))+name
+            url = "http://localhost:8080/api/v1/countries/".format(os.environ.get("TMDB_API_KEY"))+name+"?time="+time
 
 
         response = urllib.request.urlopen(url)

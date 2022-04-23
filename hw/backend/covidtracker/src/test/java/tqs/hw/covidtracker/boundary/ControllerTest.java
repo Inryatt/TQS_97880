@@ -29,7 +29,7 @@ public class ControllerTest {
     @Test
     void whenGetResult_GetCorrectResult() throws Exception {
 
-        when(service.getCountryData("Finland")).thenReturn(
+        when(service.getCountryData("Finland","None")).thenReturn(
                 """
                        {"updated":1650208218969,"country":"Finland","countryInfo":{"_id":246,"iso2":"FI","iso3":"FIN","lat":64,"long":26,"flag":"https://disease.sh/assets/img/flags/fi.png"},"cases":949583,"todayCases":0,"deaths":3517,"todayDeaths":0,"recovered":46000,"todayRecovered":0,"active":900066,"critical":29,"casesPerOneMillion":170908,"deathsPerOneMillion":633,"tests":10591416,"testsPerOneMillion":1906270,"population":5556093,"continent":"Europe","oneCasePerPeople":6,"oneDeathPerPeople":1580,"oneTestPerPeople":1,"activePerOneMillion":161996.21,"recoveredPerOneMillion":8279.2,"criticalPerOneMillion":5.22}
                 """

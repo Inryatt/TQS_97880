@@ -3,10 +3,7 @@ package tqs.hw.covidtracker.boundary;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tqs.hw.covidtracker.connection.BasicHttpClient;
 import tqs.hw.covidtracker.service.CountryManagerService;
 
@@ -37,10 +34,11 @@ public class CovidController {
         return convertThisList( countryService.getAllCountryData());
     }
 
+
     @GetMapping("/countries/{name}")
     Map<Object,Object> getOneCountry(
-            @PathVariable(value = "name") String name) {
-        return convertThis( countryService.getCountryData(name));
+            @PathVariable(value = "name") String name, @RequestParam(value = "time", defaultValue = "none") String time) {
+        return convertThis( countryService.getCountryData(name,time));
     }
 
     @GetMapping("/stats")
