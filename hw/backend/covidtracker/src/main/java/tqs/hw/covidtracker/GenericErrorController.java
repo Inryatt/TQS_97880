@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class GenericErrorController implements ErrorController {
 
 
-    @RequestMapping("/error")
+    @GetMapping("/error")
     @ResponseBody
     String getErrorPath(){
         return "Uh oh! You shouldn't be here!";

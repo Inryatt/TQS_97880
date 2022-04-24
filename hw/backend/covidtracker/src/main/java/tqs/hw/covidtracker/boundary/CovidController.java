@@ -16,7 +16,7 @@ import java.util.Map;
 //TODO LOGS
 @RestController
 @RequestMapping("api/v1/")
-public class CovidController {
+public class CovidController   {
 
     private final CountryManagerService countryService;
 
