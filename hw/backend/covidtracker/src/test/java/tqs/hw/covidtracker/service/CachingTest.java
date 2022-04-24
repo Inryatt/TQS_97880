@@ -43,7 +43,7 @@ public class CachingTest {
         countryManagerService.getCountryData("finland","none");
         assertTrue(countryManagerService.cache.contains("api/v1/countries/finland"));
 
-        Thread.sleep(countryManagerService.cache.ttl);
+        Thread.sleep(countryManagerService.cache.ttl+2);
         assertFalse(countryManagerService.cache.contains("api/v1/countries/finland"));
 
     }
